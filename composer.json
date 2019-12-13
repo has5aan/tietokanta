@@ -1,0 +1,20 @@
+{
+  "name": "tietokanta/database",
+  "type": "library",
+  "description": "Relational Database Abstraction Library",
+  "keywords": ["sql","database", "DAL", "PDO"],
+  "homepage": "https://github.com/has5aan/tietokanta",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hassaan Ahmed Rana",
+      "email": "has5aan@outlook.com",
+      "homepage": "https://github.com/has5aan/",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.3.5",
+    "ext-pdo": "*"
+  }
+}
