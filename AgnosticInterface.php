@@ -13,7 +13,7 @@ interface AgnosticInterface
 {
     /**
      * Opens a connection to the corresponding database implementation.
-     * @param array|boolean $connectionConfig Connection details for the underlying database.
+     * @param string|boolean $connectionConfig Connection details for the underlying database.
      * @return AgnosticInterface Current instance of AgnosticInterface implementation.
      *
      */
