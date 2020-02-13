@@ -16,5 +16,8 @@
   "require": {
     "php": ">=7.1",
     "ext-pdo": "*"
-  }
+  },
+  "autoload": {
+    "psr-4": { "Tietokanta\\": "src/" }
+}
 }
