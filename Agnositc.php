@@ -65,7 +65,6 @@ class Agnostic implements AgnosticInterface
         return $this->connectionConfig;
     }
 
-
     /**
      * Begins a new transaction.
      * @return AgnosticInterface The current instance of AgnosticInterface implementation.
@@ -128,6 +127,7 @@ class Agnostic implements AgnosticInterface
 
         return $this;
     }
+    
     /**
      * Prepares and executes the provided query.
      * @param string $query Query to be executed.
