@@ -23,7 +23,8 @@ class Agnostic implements AgnosticInterface
 
     /**
      * Constructs the implementation of AgnosticInterface with provided configurations.
-     * @param string $connectionConfig Connection details for the underlying database.
+     * @param array $connectionConfig Connection details for the underlying database.
+     * <p>$connectionConfig["connectionString"=>"string (required)", "user"=>"string (optional)", "password"=>"string (optional)"]</p>
      */
     public function __construct($connectionConfig)
     {
@@ -32,7 +33,8 @@ class Agnostic implements AgnosticInterface
 
     /**
      * Opens a connection to the corresponding database implementation.
-     * @param string|boolean $connectionConfig Connection details for the underlying database.
+     * @param array|boolean $connectionConfig Connection details for the underlying database.
+     * <p>$connectionConfig["connectionString"=>"string (required)", "user"=>"string (optional)", "password"=>"string (optional)"]</p>
      * @return AgnosticInterface Current instance of AgnosticInterface implementation.
      *
      */
@@ -41,7 +43,14 @@ class Agnostic implements AgnosticInterface
         if ($connectionConfig)
             $this->connectionConfig = $connectionConfig;
 
-        $this->db = new PDO($this->connectionConfig);
+        if (isset($connectionConfig['user']))
+            $this-> db = new PDO(
+                            $this->connectionConfig['connectionString'], 
+                            $this->connectionConfig['user'],
+                            $this->connectionConfig['password']);
+        else
+            $this->db = new PDO($this->connectionConfig['connectionString']);
+
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         return $this;
